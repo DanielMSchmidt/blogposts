@@ -1,3 +1,3 @@
 Add post about
-  - https://github.com/RailsApps/rails-composer
   - Rails + Persona Tutorial
+  - https://github.com/RailsApps/rails-composer
