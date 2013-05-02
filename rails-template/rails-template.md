@@ -1,6 +1,8 @@
 My personal rails app template
 ==============================
 
+The pros
+--------
 At the start of a new projects, there are some task you do each time:
 
   * Adding gems, which you use everytime (e.g. rspec, capybara, haml, ...)
@@ -11,6 +13,9 @@ At the start of a new projects, there are some task you do each time:
   * Initialize a todo.md with it's default structure
 
 If you find yourself doing some of those tasks for new Rails apps you should concider using an [Application Template](http://edgeguides.rubyonrails.org/rails_application_templates.html).
+
+How-to
+------
 
 Rails provides a powerfull API to automate these annoying tasks, which keep you away from getting things done. It provides functions like
 
@@ -95,3 +100,25 @@ For example my Application Template looks like this:
 To use this application template every time you start a new rails app, simple add the following to your **~/.railsrc**
 
     -m ~/Path/to/Template/template.rb
+
+The catch
+---------
+
+If you don't develop the same application over and over again you will find yourself removing parts of the work your template did for you.
+Better to say hopefully you will remove these parts, because if they remain in your project you will use a bigger stack than you need, which is never good.
+Additionally you will find yourself using allways the same gem stack, you will get bored soon and miss the times experimenting with alternatives to your normal gems.
+
+A good solution to fix at least the first point is using Thors *ask* and *yes?* methods and encapsulate your template. E.g. you could do something like this:
+
+    rspec = yes? 'Will we use rspec?'
+    guard = yes? 'Do we need guard?'
+
+    gem('rspec-rails', group: :test) if rspec
+    gem('guard', group: :development) if guard
+    gem('guard-rspec', group: :development) if rspec && guard
+
+One last advice
+---------------
+
+You got the tool to automate all your initial tasks, so you will soon get to the point when you try to automate **everything**. I found myself trying to automate my authentication and authorization, adding special rake tasks and stuff like that, which should be a custom thing for most apps.<br />
+These are things, which really expands the shapes in which application templates are thought of, so you should concider moving these into [generators](http://guides.rubyonrails.org/generators.html).
