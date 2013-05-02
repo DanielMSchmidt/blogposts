@@ -1,1 +1,3 @@
-Add post about (or enhance rails-template) https://github.com/RailsApps/rails-composer
+Add post about
+  - https://github.com/RailsApps/rails-composer
+  - Rails + Persona Tutorial

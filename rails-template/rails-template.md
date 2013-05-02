@@ -12,19 +12,32 @@ At the start of a new projects, there are some task you do each time:
 
 If you find yourself doing some of those tasks for new Rails apps you should concider using an [Application Template](http://edgeguides.rubyonrails.org/rails_application_templates.html).
 
-My complete Application Template looks like this:
+Rails provides a powerfull API to automate these annoying tasks, which keep you away from getting things done. It provides functions like
+
+  * [gem/gem_group](http://edgeguides.rubyonrails.org/rails_application_templates.html#gem-args): adds gems to gemfile
+  * [environment](http://edgeguides.rubyonrails.org/rails_application_templates.html#environment-application-data-nil-options-block): Adds a line to an enviroment
+  * [generate](http://edgeguides.rubyonrails.org/rails_application_templates.html#generate-what-args): normal rails generator (scaffold, resource, model, etc)
+  * [run](http://edgeguides.rubyonrails.org/rails_application_templates.html#run-command): runs a command in the project directory
+  * [rake](http://edgeguides.rubyonrails.org/rails_application_templates.html#rake-command-options): runs a rake task
+  * [route](http://edgeguides.rubyonrails.org/rails_application_templates.html#route-routing-code): adds a route to your application
+  * [git](http://edgeguides.rubyonrails.org/rails_application_templates.html#git-command): runs a git command
+  * many others
+
+For example my Application Template looks like this:
+
+    #Get the path of the application template
+    path = File.expand_path File.dirname(__FILE__)
 
     #Ask me what I want
     root_controller = yes? 'Do I need a root controller?'
     if root_controller
       root_controller_name = ask("What is my root controllers name?").underscore
     end
-    heroku = yes? 'Do I need heroku?'
 
     #Add git
     git :init
 
-    #rm the index.html
+    #remove the index.html
     remove_file 'public/index.html'
 
     #Add testing stuff
@@ -38,15 +51,6 @@ My complete Application Template looks like this:
         gem('factory_girl_rails')
         gem('capybara')
     end
-
-    environment "config.after_initialize do \n
-      Bullet.enable = true \n
-      Bullet.alert = true \n
-      Bullet.bullet_logger = true \n
-      Bullet.console = true \n
-      Bullet.rails_logger = true \n
-      Bullet.disable_browser_cache = true \n
-    end", env: 'development'
 
     #Add root controller
     if root_controller
@@ -88,6 +92,6 @@ My complete Application Template looks like this:
     #open project
     run "mate ."
 
-So my **~/.railsrc** looks like this:
+To use this application template every time you start a new rails app, simple add the following to your **~/.railsrc**
 
     -m ~/Path/to/Template/template.rb
