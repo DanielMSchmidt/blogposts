@@ -10,7 +10,7 @@ At the start of a new projects, there are some task which recur:
   * Removing the public/index.html (won't be necessary anymore in Rails 4)
   * Add a HomeController or something like that
   * Add git remotes (e.g. origin and heroku)
-  * Initialize a todo.md with it's default structure
+  * Initialize a todo.md with its default structure
 
 If you find yourself doing some of those tasks for each new Rails app you should consider using an [Application Template](http://edgeguides.rubyonrails.org/rails_application_templates.html).
 
@@ -106,7 +106,7 @@ The fast catch
 
 If you don't develop the same application over and over again, you will find yourself removing parts of the work your template did for you from the app.
 At least I hope you will remove these parts, because if they remain in your project you will use a bigger stack than you need to. <br>
-Additionally, If you always use the same gems you will miss the chance to try new ones and improve as a developer, at least if you use the same template for every new project.
+Additionally, if you always use the same gems you will miss the chance to try new ones and improve as a developer, at least if you use the same template for every new project.
 <br>
 A nice solution to fix at least the first point is using Thors *ask* and *yes?* methods and encapsulate your template. E.g. you could do something like this:
 
