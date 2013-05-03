@@ -101,8 +101,8 @@ To use this application template every time you start a new rails app, simple ad
 
     -m ~/Path/to/Template/template.rb
 
-The catch
----------
+The fast catch
+--------------
 
 If you don't develop the same application over and over again you will find yourself removing parts of the work your template did for you.
 Better to say hopefully you will remove these parts, because if they remain in your project you will use a bigger stack than you need, which is never good.
@@ -116,6 +116,19 @@ A good solution to fix at least the first point is using Thors *ask* and *yes?* 
     gem('rspec-rails', group: :test) if rspec
     gem('guard', group: :development) if guard
     gem('guard-rspec', group: :development) if rspec && guard
+
+
+The slow catch
+--------------
+
+As you add more and more gems to your template you will experience one big problem: <br>
+**They change!**<br>
+A new initializer here, some deprecated configs there and you will find yourself maintaining the template as often as you start a new app. There is no way arround this, but asking you one simple question each time you incrementally change your template: <br><br>
+*Do I really want to maintain all changes of this gem?*
+<br><br>
+So if this gem is heavily under development and not even close to his *final* form you should think twice about if it's worth the work. Because nothing stresses you more then initializing a new rails app, nothing works and you don't know which of the 40 gems have failed (Of course you will find out soon, but your mood won't be the same as before).
+<br><br>
+The other way around this would be to fix the version numbers of each gem, but seriously if there is new cool stuff in the gem you probably want to check it out in development.
 
 One last advice
 ---------------
