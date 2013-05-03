@@ -5,19 +5,19 @@ The pros
 --------
 At the start of a new projects, there are some task you do each time:
 
-  * Adding gems, which you use everytime (e.g. rspec, capybara, haml, ...)
+  * Adding gems, which you use every time (e.g. rspec, capybara, haml, ...)
   * Run different installers for each gem
-  * Removing the public/index.html (won't be nessasary anymore in Rails 4)
+  * Removing the public/index.html (won't be necessary anymore in Rails 4)
   * Add a HomeController or something like that
   * Add git remotes (e.g. origin and heroku)
   * Initialize a todo.md with it's default structure
 
-If you find yourself doing some of those tasks for new Rails apps you should concider using an [Application Template](http://edgeguides.rubyonrails.org/rails_application_templates.html).
+If you find yourself doing some of those tasks for new Rails apps you should consider using an [Application Template](http://edgeguides.rubyonrails.org/rails_application_templates.html).
 
 How-to
 ------
 
-Rails provides a powerfull API to automate these annoying tasks, which keep you away from getting things done. It provides functions like
+Rails provides a powerful API to automate these annoying tasks, which keep you away from getting things done. It provides functions like
 
   * [gem/gem_group](http://edgeguides.rubyonrails.org/rails_application_templates.html#gem-args): adds gems to gemfile
   * [environment](http://edgeguides.rubyonrails.org/rails_application_templates.html#environment-application-data-nil-options-block): Adds a line to an enviroment
@@ -64,7 +64,7 @@ For example my Application Template looks like this:
       remove_file "public/index.html"
     end
 
-    #Add some other usefull stuff
+    #Add some other useful stuff
     gem('foreman')
     gem('compass-rails', group: :assets)
     gem('haml')
@@ -74,7 +74,7 @@ For example my Application Template looks like this:
     #install bundles so their installers will work
     run "bundle install"
 
-    #initialising testing stuff
+    #initializing testing stuff
     say "I will just initialize your testing stuff"
     generate("rspec:install")
 
@@ -106,7 +106,7 @@ The fast catch
 
 If you don't develop the same application over and over again you will find yourself removing parts of the work your template did for you.
 Better to say hopefully you will remove these parts, because if they remain in your project you will use a bigger stack than you need, which is never good.
-Additionally you will find yourself using allways the same gem stack, you will get bored soon and miss the times experimenting with alternatives to your normal gems.
+Additionally you will find yourself using always the same gem stack, you will get bored soon and miss the times experimenting with alternatives to your normal gems.
 
 A good solution to fix at least the first point is using Thors *ask* and *yes?* methods and encapsulate your template. E.g. you could do something like this:
 
@@ -123,7 +123,7 @@ The slow catch
 
 As you add more and more gems to your template you will experience one big problem: <br>
 **They change!**<br>
-A new initializer here, some deprecated configs there and you will find yourself maintaining the template as often as you start a new app. There is no way arround this, but asking you one simple question each time you incrementally change your template: <br><br>
+A new initializer here, some deprecated configs there and you will find yourself maintaining the template as often as you start a new app. There is no way around this, but asking you one simple question each time you incrementally change your template: <br><br>
 *Do I really want to maintain all changes of this gem?*
 <br><br>
 So if this gem is heavily under development and not even close to his *final* form you should think twice about if it's worth the work. Because nothing stresses you more then initializing a new rails app, nothing works and you don't know which of the 40 gems have failed (Of course you will find out soon, but your mood won't be the same as before).
@@ -134,4 +134,4 @@ One last advice
 ---------------
 
 You got the tool to automate all your initial tasks, so you will soon get to the point when you try to automate **everything**. I found myself trying to automate my authentication and authorization, adding special rake tasks and stuff like that, which should be a custom thing for most apps.<br />
-These are things, which really expands the shapes in which application templates are thought of, so you should concider moving these into [generators](http://guides.rubyonrails.org/generators.html).
+These are things, which really expands the shapes in which application templates are thought of, so you should consider moving these into [generators](http://guides.rubyonrails.org/generators.html).
