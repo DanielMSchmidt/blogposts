@@ -24,3 +24,30 @@ Persona gives you the possibility to address all these problems which just one s
 
 To the rails
 ------------
+
+I start with a basic rails app, which has a home controller with an index and secret action. I want to provide a login which gives you access to the secret page and I would like to have additional information saved for the user.
+<br><br>
+To start you have to add the persona library to the bottom of your application template:
+<br>
+  **app/views/layouts/application.html.erb**
+
+    <script src="https://login.persona.org/include.js"></script>
+
+As the IE's compatibility mode breaks persona you also have to add this line to your header
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<br>
+The next step is to attach login handlers to our login / logout elements.
+
+    var signinLink = document.getElementById('login');
+    if (signinLink) {
+      signinLink.onclick = function() { navigator.id.request(); };
+    }
+
+    var signoutLink = document.getElementById('logout');
+    if (signoutLink) {
+      signoutLink.onclick = function() { navigator.id.logout(); };
+    }
+
+To style them in the persona style you should add their [design](https://developer.mozilla.org/de/docs/persona/branding), what you should do, so your customers know how they are logged in and to help persona getting more and more common.
+<br><br>
